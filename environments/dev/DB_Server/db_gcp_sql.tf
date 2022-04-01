@@ -4,9 +4,12 @@ resource "google_sql_database_instance" "sql_db" {
   depends_on = [
     google_compute_network.sql_vpc
   ]
-  name = "sqldb102"
+  #name = "sqldb102"
+  name = var.sqldb-inst-name
   database_version = "MYSQL_5_7"
-  region       = "asia-southeast1"
+  #region       = "asia-southeast1"
+  region       = var.sqldb-region
+  
   settings {
     tier = "db-f1-micro"
 
@@ -25,14 +28,16 @@ resource "google_sql_database_instance" "sql_db" {
 }
 
 resource "google_sql_database" "database" {
-  name      = "wpdb"
+  #name      = "wpdb"
+  name      = var.sqldb-name
   instance  = google_sql_database_instance.sql_db.name
 }
 
 resource "google_sql_user" "users" {
   name     = "root"
   instance = google_sql_database_instance.sql_db.name
-  password = "sql-wp@&A#"
+  #password = "sql-wp@&A#"
+  password = var.sqldbpass
 }
 
 output "uname" {
