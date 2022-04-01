@@ -1,3 +1,9 @@
+variable "sqldb-inst-name" {}
+variable "sqldb-region" {}
+variable "sqldb-inst-name" {}
+variable "sqldb-name" {}
+variable "sqldbpass" {}
+
 variable "static_ip_wp" {}
 
 resource "google_sql_database_instance" "sql_db" {
