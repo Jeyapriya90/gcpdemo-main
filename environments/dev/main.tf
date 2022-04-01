@@ -12,7 +12,7 @@ module "DBServer" {
   source = "./DB_Server"
   wp_vpc_id = module.AppServer.wp_vpc_id
   static_ip_wp = module.AppServer.static_ip_wp
-  sqldb-inst-name = var.sqldb-inst-name
+  sqldb-inst-name1 = var.sqldb-inst-name
   sqldb-region = var.sqldb-region
   sqldb-name = var.sqldb-name
   sqldbpass = var.sqldbpass
