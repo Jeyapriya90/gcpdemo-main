@@ -89,5 +89,5 @@ steps:
         echo "Branch '$BRANCH_NAME' does not represent an oficial environment."
         echo "*******************************************************************************"
       fi
-      timeout: 7200
+  - timeout: 7200
 # [END tf-apply]      
