@@ -39,7 +39,7 @@ resource "google_secret_manager_secret_version" "local-admin-password" {
 data "google_secret_manager_secret_version" "local-admin-password" {
   provider = google-beta
   secret   = "local-admin-password"
-  version  = "1"
+  #version  = "1"
 }
 
 output "local-admin-password" {
