@@ -4,7 +4,7 @@ resource "google_sql_database_instance" "sql_db" {
   depends_on = [
     google_compute_network.sql_vpc
   ]
-  name = "sqldb102"
+  name = "sqldb103"
   #name = var.sqldb-inst-name
   database_version = "MYSQL_5_7"
   region       = "asia-southeast1"
