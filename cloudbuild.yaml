@@ -57,6 +57,7 @@ steps:
   - | 
       if [ -d "environments/$BRANCH_NAME/" ]; then
         cd environments/$BRANCH_NAME
+        terraform state list
         terraform plan -lock=false
       else
         for dir in environments/*/
