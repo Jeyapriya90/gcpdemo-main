@@ -57,7 +57,7 @@ steps:
   - | 
       if [ -d "environments/$BRANCH_NAME/" ]; then
         cd environments/$BRANCH_NAME
-        terraform plan -var-file="terraform.tfvars" -lock=false
+        terraform plan 
       else
         for dir in environments/*/
         do 
@@ -83,7 +83,7 @@ steps:
   - | 
       if [ -d "environments/$BRANCH_NAME/" ]; then
         cd environments/$BRANCH_NAME      
-        terraform apply -auto-approve -var-file="terraform.tfvars" -lock=false
+        terraform apply -auto-approve 
       else
         echo "***************************** SKIPPING APPLYING *******************************"
         echo "Branch '$BRANCH_NAME' does not represent an oficial environment."
