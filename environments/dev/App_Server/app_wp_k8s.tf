@@ -13,10 +13,10 @@ data "google_container_cluster" "my_cluster" {
   depends_on = [
     google_container_cluster.wp_gke
   ]
-  #name     = "wp-gke-cluster"
-  name     = var.gke-cluster-name
-  #location = "us-central1-c"
-  location = var.gke-region
+  name     = "wp-gke-cluster"
+  #name     = var.gke-cluster-name
+  location = "us-central1-c"
+  #location = var.gke-region
 }
 
 provider "kubernetes" {
@@ -32,8 +32,8 @@ provider "kubernetes" {
 resource "google_compute_address" "static_ip" {
   name = "static-ip-address"
   region = "us-central1"
-  #project = "dev-project-345909"
-  project = var.project-id
+  project = "dev-project-345909"
+  #project = var.project-id
 }
 
 output "static_ip_wp" {
