@@ -1,3 +1,7 @@
+variable "gke-cluster-name" {}
+variable "gke-region" {}
+variable "gke-node-name" {}
+
 data "google_project" "prod_project" {}
 
 resource "google_container_cluster" "wp_gke" {
