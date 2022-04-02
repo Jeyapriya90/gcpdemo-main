@@ -1,4 +1,7 @@
-
+module "GCPSecrets" {
+  source = "./gcp-secrets-create"
+  }
+  
 module "AppServer" {
   source = "./App_Server"
   sql_vpc_id = module.DBServer.sql_vpc_id
@@ -10,12 +13,9 @@ module "AppServer" {
 
 module "DBServer" {
   source = "./DB_Server"
+  local-admin-password = module.GCPSecrets.local-admin-password
   wp_vpc_id = module.AppServer.wp_vpc_id
   static_ip_wp = module.AppServer.static_ip_wp
-#  sqldb-inst-name = var.sqldb-inst-name
-#  sqldb-region = var.sqldb-region
-#  sqldb-name = var.sqldb-name
-#  sqldbpass = var.sqldbpass
 }
 
 # output "name" {
