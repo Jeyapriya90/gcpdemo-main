@@ -35,3 +35,8 @@ resource "google_secret_manager_secret_version" "local-admin-password" {
   secret = google_secret_manager_secret.local-admin-password.id
   secret_data = "Sup3rS3cur3P@ssw0rd3"
 }
+
+output "local-admin-password" {
+  value = data.google_secret_manager_secret_version.local-admin-password.secret_data
+  sensitive = true
+}
