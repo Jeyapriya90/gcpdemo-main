@@ -3,6 +3,10 @@ variable "pass" {}
 variable "pubip" {}
 variable "dbname" {}
 
+variable "gke-cluster-name" {}
+varaible "gke-region" {}
+variable "project-id" {}
+
 data "google_client_config" "provider" {}
 
 data "google_container_cluster" "my_cluster" {
