@@ -1,6 +1,3 @@
-variable "gke-cluster-name" {}
-variable "gke-region" {}
-variable "gke-node-name" {}
 
 data "google_project" "prod_project" {}
 
@@ -8,10 +5,10 @@ resource "google_container_cluster" "wp_gke" {
   depends_on = [
     google_compute_network.wp_vpc
   ]
-  #name     = "wp-gke-cluster"
-  name = var.gke-cluster-name
-  #location = "us-central1-c"
-  location = var.gke-region
+  name     = "wp-gke-cluster"
+  #name = var.gke-cluster-name
+  location = "us-central1-c"
+  #location = var.gke-region
   initial_node_count       = 1
   remove_default_node_pool = true
   network = google_compute_network.wp_vpc.name
@@ -19,10 +16,10 @@ resource "google_container_cluster" "wp_gke" {
 }
 
 resource "google_container_node_pool" "wp_cluster_nodes" {
-  #name       = "wp-node-pool"
-  name = var.gke-node-name
-  #location   = "us-central1-c"
-  location   = var.gke-region
+  name       = "wp-node-pool"
+  #name = var.gke-node-name
+  location   = "us-central1-c"
+  #location   = var.gke-region
   cluster    = google_container_cluster.wp_gke.name
   node_count = 1
 
