@@ -3,8 +3,8 @@
 #############################################
 
 # Create a secret for local-admin-username
-data "google_project" "prod_project" {
-}
+#data "google_project" "prod_project" {
+#}
 
 # Create a secret for local-admin-password
 resource "google_secret_manager_secret" "local-admin-password" {
