@@ -30,7 +30,7 @@ data "google_secret_manager_secret_version" "local-admin-password" {
   #version  = "1"
 }
 
-output "local-admin-password" {
+output "secret" {
   value = data.google_secret_manager_secret_version.local-admin-password.secret_data
   sensitive = true
 }
