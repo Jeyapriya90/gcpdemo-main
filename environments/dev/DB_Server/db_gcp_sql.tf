@@ -1,5 +1,5 @@
 variable "static_ip_wp" {}
-#variable "local-admin-password" {}
+variable "local-admin-password" {}
 
 resource "google_sql_database_instance" "sql_db" {
   depends_on = [
@@ -38,8 +38,8 @@ resource "google_sql_user" "users" {
   name     = "root"
   instance = google_sql_database_instance.sql_db.name
   #password = "sql-wp@&A#"
-  #password = var.local-admin-password
-  password = google_secret_manager_secret_version.local-admin-password
+  password = var.local-admin-password
+  #password = google_secret_manager_secret_version.local-admin-password
 }
 
 output "uname" {
