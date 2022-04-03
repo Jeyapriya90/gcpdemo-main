@@ -1,6 +1,6 @@
 variable "static_ip_wp" {}
 
-resource "google_secret_manager_secret" "local-admin-password" {
+/*resource "google_secret_manager_secret" "local-admin-password" {
   provider = google-beta
   project = "dev-project-345909"
 
@@ -27,7 +27,7 @@ data "google_secret_manager_secret_version" "local-admin-password" {
 output "local-admin-password" {
   value = data.google_secret_manager_secret_version.local-admin-password.secret_data
   sensitive = true
-}
+}*/
 
 
 resource "google_sql_database_instance" "sql_db" {
@@ -66,9 +66,9 @@ resource "google_sql_database" "database" {
 resource "google_sql_user" "users" {
   name     = "root"
   instance = google_sql_database_instance.sql_db.name
-  #password = "sql-wp@&A#"
+  password = "sql-wp@&A#"
   #password = var.local-admin-password
-  password = google_secret_manager_secret_version.local-admin-password
+  #password = google_secret_manager_secret_version.local-admin-password
 }
 
 output "uname" {
