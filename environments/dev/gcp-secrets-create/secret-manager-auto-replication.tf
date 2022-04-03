@@ -3,6 +3,9 @@
 #############################################
 
 # Create a secret for local-admin-username
+data "google_project" "prod_project" {
+}
+
 resource "google_secret_manager_secret" "local-admin-username" {
   provider = google-beta
 
