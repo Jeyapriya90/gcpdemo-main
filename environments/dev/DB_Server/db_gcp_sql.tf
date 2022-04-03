@@ -1,5 +1,5 @@
 variable "static_ip_wp" {}
-variable "local-admin-password" {}
+#variable "local-admin-password" {}
 
 resource "google_sql_database_instance" "sql_db" {
   depends_on = [
