@@ -2,6 +2,7 @@ variable "static_ip_wp" {}
 
 resource "google_secret_manager_secret" "local-admin-password" {
   provider = google-beta
+  project = "dev-project-345909"
 
   secret_id   = "local-admin-password"
 
